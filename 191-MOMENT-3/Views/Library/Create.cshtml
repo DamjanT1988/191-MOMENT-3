@@ -1,0 +1,23 @@
+﻿@model _191_MOMENT_3.Models.LibraryModel
+@{
+    ViewData["Title"] = "Add post";
+}
+
+<h2>Add posts</h2>
+
+<form method="post">
+    <div asp-validation-summary="All"></div>
+    <label asp-for="Artist"></label>
+    <input asp-for="Artist">
+    <br />
+    <label asp-for="Album"></label>
+    <textarea asp-for="Album"></textarea>
+    <br />
+    <label asp-for="Year"></label>
+    <input asp-for="Year">
+    <br />
+    <label asp-for="Minutes"></label>
+    <input asp-for="Minutes">
+    <br />
+    <input type="submit" value="Add CD" />
+</form>

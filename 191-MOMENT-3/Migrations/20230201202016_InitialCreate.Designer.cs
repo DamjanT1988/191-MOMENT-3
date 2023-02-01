@@ -4,14 +4,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using _191_MOMENT_3_TEST1.Data;
+using _191_MOMENT_3.Data;
 
 #nullable disable
 
 namespace _191MOMENT3.Migrations
 {
-    [DbContext(typeof(GuestbookContext))]
-    [Migration("20230131195517_InitialCreate")]
+    [DbContext(typeof(LibraryContext))]
+    [Migration("20230201202016_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -20,24 +20,34 @@ namespace _191MOMENT3.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.2");
 
-            modelBuilder.Entity("_191_MOMENT_3.Models.GuestbookModel", b =>
+            modelBuilder.Entity("_191_MOMENT_3.Models.LibraryModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Message")
+                    b.Property<string>("Album")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("Artist")
+                        .IsRequired()
                         .HasColumnType("TEXT");
+
+                    b.Property<int?>("Minutes")
+                        .IsRequired()
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("PostedDate")
                         .HasColumnType("TEXT");
 
+                    b.Property<int?>("Year")
+                        .IsRequired()
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("Id");
 
-                    b.ToTable("guestbook");
+                    b.ToTable("mainLibrary");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Students";
+}
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    @{
+        IEnumerable<_191_MOMENT_3.Models.Student> studentlist = (IEnumerable<_191_MOMENT_3.Models.Student>)ViewData["students"];
+    }
+
+    @foreach (Student s in studentlist)
+     {
+        @s.StudentName;
+        @s.Age;
+        <br />
+     }
+
+
+</div>

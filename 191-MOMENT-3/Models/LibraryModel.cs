@@ -7,15 +7,19 @@ using System.Text;
 
 namespace _191_MOMENT_3.Models
 {
-    public class GuestbookModel
+    public class LibraryModel
     {
         //Properties
         //ID = auto
         public int Id { get; set; }
         [Required]
-        public string? Name { get; set; }
+        public string? Artist { get; set; }
         [Required]
-        public string? Message { get; set; }
+        public string? Album { get; set; }
+        [Required]
+        public int? Year { get; set; }
+        [Required]
+        public int? Minutes { get; set; }
         //DATE = auto
         public DateTime PostedDate { get; set; } = DateTime.Now;
     }

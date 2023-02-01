@@ -1,4 +1,4 @@
-using _191_MOMENT_3_TEST1.Data;
+using _191_MOMENT_3.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 //connect to db
-builder.Services.AddDbContext<GuestbookContext>(options =>
+builder.Services.AddDbContext<LibraryContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultDbString")));
 
 
@@ -28,6 +28,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Guestbook}/{action=Index}/{id?}");
+    pattern: "{controller=Library}/{action=Index}/{id?}");
 
 app.Run();

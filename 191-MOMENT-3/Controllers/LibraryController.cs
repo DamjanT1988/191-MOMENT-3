@@ -1,5 +1,5 @@
 ﻿using _191_MOMENT_3.Models;
-using _191_MOMENT_3_TEST1.Data;
+using _191_MOMENT_3.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -10,14 +10,14 @@ using System.Text;
 
 namespace _191_MOMENT_3.Controllers
 {
-    public class GuestbookController : Controller
+    public class LibraryController : Controller
     {
         //---DATABASE
 
         //create db connection (protected)
-        private readonly GuestbookContext _context;
+        private readonly LibraryContext _context;
 
-        public GuestbookController(GuestbookContext context)
+        public LibraryController(LibraryContext context)
         {
             //protected db connection
             _context = context;
@@ -31,7 +31,7 @@ namespace _191_MOMENT_3.Controllers
         public async Task<IActionResult> Index()
         {
             //return list of objects from db (make list by ToList)
-            return View(await _context.guestbook.ToListAsync());
+            return View(await _context.mainLibrary.ToListAsync());
         }
 
         //create page
@@ -47,12 +47,12 @@ namespace _191_MOMENT_3.Controllers
         [HttpPost]
         //control that the actual form is sent
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(GuestbookModel guestbook)
+        public async Task<IActionResult> Create(LibraryModel mainlibrary)
         {
             if (ModelState.IsValid)
             {
-                //add to db, adding instance guestbook
-                _context.Add(guestbook);
+                //add to db, adding instance library
+                _context.Add(mainlibrary);
                 //save changes, async
                 await _context.SaveChangesAsync();
 
@@ -66,10 +66,10 @@ namespace _191_MOMENT_3.Controllers
         [HttpPost]
         public async Task<IActionResult> Delete(int Id)
         {
-            var guestbookItem = await _context.guestbook.FindAsync(Id);
-            if(guestbookItem != null)
+            var libraryItem = await _context.mainLibrary.FindAsync(Id);
+            if(libraryItem != null)
             {
-                _context.guestbook.Remove(guestbookItem);
+                _context.mainLibrary.Remove(libraryItem);
                 await _context.SaveChangesAsync();
             }
 

@@ -6,20 +6,28 @@ namespace _191_MOMENT_3.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
 
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Students()
         {
+            //list
+            IList<Student> studentlist = new List<Student>()
+            {
+                new Student() {StudentID = 1, StudentName = "A", Age = 12},
+                new Student() {StudentID = 2, StudentName = "B", Age = 13},
+                new Student() {StudentID = 3, StudentName = "C", Age = 15},
+            };
+
+            //LINQ query
+            var teenagerStudents = studentlist.Where(s => s.Age > 12).ToList<Student>();
+
+            //pass data
+            ViewData["students"] = teenagerStudents;
+
             return View();
         }
 

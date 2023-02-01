@@ -1,6 +1,6 @@
-﻿@model List<_191_MOMENT_3.Models.GuestbookModel>
+﻿@model List<_191_MOMENT_3.Models.LibraryModel>
 @{
-    ViewData["Title"] = "Guestbook";
+    ViewData["Title"] = "Library";
 }
 
 <h2>Existing guestbook posts</h2>
@@ -12,12 +12,13 @@
         @foreach (var item in Model)
         {
             <article>
-                <h4>@item.Message</h4>
-                <p>@item.Name - @item.PostedDate</p>
+                <h4>Artist: @item.Artist</h4>
+                <h5>Album: @item.Album</h5>
+                <p>Year: @item.Year - Minutes: @item.Minutes</p>
 
                 <form method="post" asp-action="Delete">
                 <input type="hidden" id="id" name="id" value="@item.Id">
-                <input type="submit" value="Delete post">
+                <input type="submit" value="Delete CD">
                 </form>
             </article>
         }

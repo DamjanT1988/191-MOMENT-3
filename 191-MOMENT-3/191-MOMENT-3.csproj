@@ -24,4 +24,8 @@
     <PackageReference Include="NetExtensions.Infra.SqliteBrowser" Version="1.0.6" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

@@ -12,18 +12,20 @@ namespace _191MOMENT3.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "guestbook",
+                name: "mainLibrary",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(type: "TEXT", nullable: true),
-                    Message = table.Column<string>(type: "TEXT", nullable: true),
+                    Artist = table.Column<string>(type: "TEXT", nullable: false),
+                    Album = table.Column<string>(type: "TEXT", nullable: false),
+                    Year = table.Column<int>(type: "INTEGER", nullable: false),
+                    Minutes = table.Column<int>(type: "INTEGER", nullable: false),
                     PostedDate = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_guestbook", x => x.Id);
+                    table.PrimaryKey("PK_mainLibrary", x => x.Id);
                 });
         }
 
@@ -31,7 +33,7 @@ namespace _191MOMENT3.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "guestbook");
+                name: "mainLibrary");
         }
     }
 }
