@@ -10,7 +10,7 @@ namespace _191_MOMENT_3.Models
     public class LibraryModel
     {
         //Properties
-        //ID = auto
+        //ID = auto, primary key (PK)
         public int Id { get; set; }
         [Required]
         public string? Artist { get; set; }

@@ -14,20 +14,22 @@ namespace _191_MOMENT_3.Controllers
     {
         //---DATABASE
 
-        //create db connection (protected)
+        //create db connection (protected) in program.cs
         private readonly LibraryContext _context;
 
         public LibraryController(LibraryContext context)
         {
-            //protected db connection
+            //protected db connection (cannot change)
             _context = context;
         }
 
-        
+
         //---VIEWS
 
         //start page
         //make async, to have more tasks
+        //on GET
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             //return list of objects from db (make list by ToList)
@@ -35,6 +37,8 @@ namespace _191_MOMENT_3.Controllers
         }
 
         //create page
+        //on GET
+        [HttpGet]
         public IActionResult Create()
         {
             return View();
