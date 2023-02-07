@@ -12,7 +12,10 @@ namespace _191_MOMENT_3.Models
         //Properties
         //ID = auto, primary key (PK)
         public int Id { get; set; }
-        [Required]
+        //required to fill in to form
+        [Required(ErrorMessage = "Please fill in the artist name!")]
+        //display specific name
+        [Display(Name = "Artist name:")]
         public string? Artist { get; set; }
         [Required]
         public string? Album { get; set; }
@@ -22,5 +25,8 @@ namespace _191_MOMENT_3.Models
         public int? Minutes { get; set; }
         //DATE = auto
         public DateTime PostedDate { get; set; } = DateTime.Now;
+
+        //limits other types: email, phone, min.length etc
+        // [DataType(DataType.EmailAddress)] - validate email
     }
 }
