@@ -17,11 +17,17 @@ namespace _191_MOMENT_3.Models
         //display specific name
         [Display(Name = "Artist name:")]
         public string? Artist { get; set; }
-        [Required]
+        
+        [Required(ErrorMessage = "Please fill in the album name!")]
+        [Display(Name = "Album name:")]
         public string? Album { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "Please fill in the year number (yyyy)!")]
+        [Display(Name = "Publishing year:")]
         public int? Year { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "Please fill in the lenght number in minutes!")]
+        [Display(Name = "Length (minutes):")]
         public int? Minutes { get; set; }
         //DATE = auto
         public DateTime PostedDate { get; set; } = DateTime.Now;
