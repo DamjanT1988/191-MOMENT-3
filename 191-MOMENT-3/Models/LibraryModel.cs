@@ -30,6 +30,7 @@ namespace _191_MOMENT_3.Models
         [Display(Name = "Length (minutes):")]
         public int? Minutes { get; set; }
         //DATE = auto
+        [Display(Name = "Created at:")]
         public DateTime PostedDate { get; set; } = DateTime.Now;
 
         //limits other types: email, phone, min.length etc
